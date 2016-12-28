@@ -93,7 +93,7 @@ func (ch *Catalog) updateProduct(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	f.ID = 54
+	f.ID = muxVarMustInt("id", r)
 
 	p, err := ch.srv.UpdateProduct(f)
 	if err != nil {
@@ -105,7 +105,7 @@ func (ch *Catalog) updateProduct(w http.ResponseWriter, r *http.Request) {
 }
 
 func (ch *Catalog) deleteProduct(w http.ResponseWriter, r *http.Request) {
-	id := mux.Vars(r)["id"]
+	id := muxVarMustInt("id", r)
 
 	if err := ch.srv.DeleteProduct(id); err != nil {
 		ch.eh.Handle(w, err)

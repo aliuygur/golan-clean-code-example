@@ -6,6 +6,8 @@ import (
 	"net/http"
 	"strconv"
 
+	"fmt"
+
 	"github.com/gorilla/mux"
 )
 
@@ -28,6 +30,10 @@ func qParam(k string, r *http.Request) string {
 	return ""
 }
 
-func muxVarInt(k string, r *http.Request) (int, error) {
-	return strconv.Atoi(mux.Vars(r)[k])
+func muxVarMustInt(k string, r *http.Request) int {
+	i, err := strconv.Atoi(mux.Vars(r)[k])
+	if err != nil {
+		panic(fmt.Sprintf("mux var can't convert to int: %v", err))
+	}
+	return i
 }
