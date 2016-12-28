@@ -1,6 +1,6 @@
 # Go sample e-commerce web application
 
-This project is just an real world example to understand and tell these in GO;
+**This project is just an real world example to understand and tell these in GO;**
 
 - How to organize folders
 - How to test go project
@@ -12,13 +12,13 @@ This project is just an real world example to understand and tell these in GO;
 - RESTful APIs
 - Serving in Docker
 
-To solve the some above problems have been used these Approaches;
+**To solve the some above problems have been used these Approaches;**
 
 - Uncle Bob's "The Clean Architecture" 
 - Dave Cheney, "Don’t just check errors, handle them gracefully"
 - SOLID design principles
 
-The business
+**The business**
 
 - Membership
   - Login
@@ -33,7 +33,11 @@ The business
 - Order
   - Order CRUD
 
-Sources 
+## Contribute
+
+waiting your contribute, [contribution guide](https://github.com/alioygur/gocart/blob/master/contributing.md)
+
+**Sources**
 
 - https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html
 - http://manuel.kiessling.net/2012/09/28/applying-the-clean-architecture-to-go-applications/
