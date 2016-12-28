@@ -1,0 +1,8 @@
+/.vscode
+/bin
+/pkg
+/src/*
+!/src/app/
+/tmp
+.env
+dokku-setenv.sh
