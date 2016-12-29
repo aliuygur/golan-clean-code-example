@@ -48,7 +48,7 @@ func (u *User) CreateJWT(secretKey string) (string, error) {
 	id := strconv.Itoa(int(u.ID))
 	claims := jwt.MapClaims{
 		"userID": id,
-		"exp":    time.Now().Add(time.Hour * (24 * 7)).Unix(),
+		"exp":    time.Now().Add(time.Hour * 6).Unix(),
 	}
 
 	// token
