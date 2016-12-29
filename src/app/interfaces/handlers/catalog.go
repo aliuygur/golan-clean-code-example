@@ -45,7 +45,7 @@ func (ch *Catalog) SetRoutes(r *mux.Router, mid ...alice.Constructor) {
 
 func (ch *Catalog) createProduct(w http.ResponseWriter, r *http.Request) {
 	f := new(usecases.ProductForm)
-	if err := decodeR(r, f); err != nil {
+	if err := decodeReq(r, f); err != nil {
 		ch.eh.Handle(w, err)
 		return
 	}
@@ -88,7 +88,7 @@ func (ch *Catalog) getProducts(w http.ResponseWriter, r *http.Request) {
 
 func (ch *Catalog) updateProduct(w http.ResponseWriter, r *http.Request) {
 	f := new(usecases.ProductForm)
-	if err := decodeR(r, f); err != nil {
+	if err := decodeReq(r, f); err != nil {
 		ch.eh.Handle(w, err)
 		return
 	}

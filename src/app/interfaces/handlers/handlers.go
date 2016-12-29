@@ -11,8 +11,8 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// decodeR decodes request's body to given interface
-func decodeR(r *http.Request, to interface{}) error {
+// decodeReq decodes request's body to given interface
+func decodeReq(r *http.Request, to interface{}) error {
 	return errs.Wrap(json.NewDecoder(r.Body).Decode(to))
 }
 

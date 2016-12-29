@@ -37,7 +37,7 @@ func (a *Account) me(w http.ResponseWriter, r *http.Request) {
 
 func (a *Account) update(w http.ResponseWriter, r *http.Request) {
 	f := new(updateMeForm)
-	if err := decodeR(r, f); err != nil {
+	if err := decodeReq(r, f); err != nil {
 		a.eh.Handle(w, err)
 		return
 	}

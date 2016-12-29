@@ -42,7 +42,7 @@ func (ah *AuthHandler) SetRoutes(r *mux.Router) {
 
 func (ah *AuthHandler) login(w http.ResponseWriter, r *http.Request) {
 	f := new(loginform)
-	if err := decodeR(r, f); err != nil {
+	if err := decodeReq(r, f); err != nil {
 		ah.eh.Handle(w, err)
 		return
 	}
@@ -58,7 +58,7 @@ func (ah *AuthHandler) login(w http.ResponseWriter, r *http.Request) {
 
 func (ah *AuthHandler) register(w http.ResponseWriter, r *http.Request) {
 	f := new(usecases.RegisterForm)
-	if err := decodeR(r, f); err != nil {
+	if err := decodeReq(r, f); err != nil {
 		ah.eh.Handle(w, err)
 		return
 	}
@@ -74,7 +74,7 @@ func (ah *AuthHandler) register(w http.ResponseWriter, r *http.Request) {
 
 func (ah *AuthHandler) forgotPassword(w http.ResponseWriter, r *http.Request) {
 	f := new(forgotPasswordForm)
-	if err := decodeR(r, f); err != nil {
+	if err := decodeReq(r, f); err != nil {
 		ah.eh.Handle(w, err)
 		return
 	}
@@ -89,7 +89,7 @@ func (ah *AuthHandler) forgotPassword(w http.ResponseWriter, r *http.Request) {
 
 func (ah *AuthHandler) resetPassword(w http.ResponseWriter, r *http.Request) {
 	f := new(resetPasswordForm)
-	if err := decodeR(r, f); err != nil {
+	if err := decodeReq(r, f); err != nil {
 		ah.eh.Handle(w, err)
 		return
 	}
@@ -104,7 +104,7 @@ func (ah *AuthHandler) resetPassword(w http.ResponseWriter, r *http.Request) {
 
 func (ah *AuthHandler) registerFacebook(w http.ResponseWriter, r *http.Request) {
 	f := new(registerFacebook)
-	if err := decodeR(r, f); err != nil {
+	if err := decodeReq(r, f); err != nil {
 		ah.eh.Handle(w, err)
 		return
 	}
