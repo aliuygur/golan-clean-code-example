@@ -32,7 +32,7 @@ func (a *Account) SetRoutes(r *mux.Router, mid ...alice.Constructor) {
 func (a *Account) me(w http.ResponseWriter, r *http.Request) {
 	u := app.UserMustFromContext(r.Context())
 
-	gores.JSON(w, 200, u)
+	gores.JSON(w, http.StatusOK, u)
 }
 
 func (a *Account) update(w http.ResponseWriter, r *http.Request) {

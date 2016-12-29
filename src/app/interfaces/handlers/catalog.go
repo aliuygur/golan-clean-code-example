@@ -56,7 +56,7 @@ func (ch *Catalog) createProduct(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	gores.JSON(w, 201, response{p})
+	gores.JSON(w, http.StatusCreated, response{p})
 }
 
 func (ch *Catalog) getProduct(w http.ResponseWriter, r *http.Request) {
@@ -68,7 +68,7 @@ func (ch *Catalog) getProduct(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	gores.JSON(w, 200, response{p})
+	gores.JSON(w, http.StatusOK, response{p})
 }
 
 func (ch *Catalog) getProducts(w http.ResponseWriter, r *http.Request) {
@@ -83,7 +83,7 @@ func (ch *Catalog) getProducts(w http.ResponseWriter, r *http.Request) {
 		ch.eh.Handle(w, err)
 		return
 	}
-	gores.JSON(w, 200, response{ps})
+	gores.JSON(w, http.StatusOK, response{ps})
 }
 
 func (ch *Catalog) updateProduct(w http.ResponseWriter, r *http.Request) {
@@ -101,7 +101,7 @@ func (ch *Catalog) updateProduct(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	gores.JSON(w, 200, response{p})
+	gores.JSON(w, http.StatusOK, response{p})
 }
 
 func (ch *Catalog) deleteProduct(w http.ResponseWriter, r *http.Request) {
@@ -122,7 +122,7 @@ func (ch *Catalog) getCategories(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	gores.JSON(w, 200, response{cs})
+	gores.JSON(w, http.StatusOK, response{cs})
 }
 
 // qCategoryParam gets category param like 1,2,3 as []interface{1, 2, 3}
