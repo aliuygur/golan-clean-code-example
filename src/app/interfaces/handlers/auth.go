@@ -53,7 +53,7 @@ func (ah *AuthHandler) login(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	gores.JSON(w, http.StatusOK, tokenres(token))
+	gores.JSON(w, http.StatusOK, tokenRes{token})
 }
 
 func (ah *AuthHandler) register(w http.ResponseWriter, r *http.Request) {
@@ -69,7 +69,7 @@ func (ah *AuthHandler) register(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	gores.JSON(w, http.StatusCreated, tokenres(token))
+	gores.JSON(w, http.StatusCreated, tokenRes{token})
 }
 
 func (ah *AuthHandler) forgotPassword(w http.ResponseWriter, r *http.Request) {
@@ -115,13 +115,11 @@ func (ah *AuthHandler) registerFacebook(w http.ResponseWriter, r *http.Request) 
 		return
 	}
 
-	gores.JSON(w, http.StatusCreated, tokenres(token))
+	gores.JSON(w, http.StatusCreated, tokenRes{token})
 }
 
-func tokenres(token string) interface{} {
-	return struct {
-		Token string `json:"token"`
-	}{token}
+type tokenRes struct {
+	Token string `json:"token"`
 }
 
 type registerFacebook struct {
