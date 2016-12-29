@@ -20,7 +20,7 @@ var (
 )
 
 type IUserRepo interface {
-	app.IDatabase
+	app.Databaser
 }
 
 // NewUser instances User

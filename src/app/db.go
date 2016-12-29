@@ -36,8 +36,8 @@ type DBUpdater interface {
 	UpdateFields(model interface{}, kv map[string]interface{}) error
 }
 
-// IDatabase is database interface
-type IDatabase interface {
+// Databaser is database interface
+type Databaser interface {
 	DBCreator
 	DBExistser
 	DBFinder

@@ -3,7 +3,7 @@ package usecases
 import "app"
 
 type cRepo interface {
-	app.IDatabase
+	app.Databaser
 	OneActiveProduct(interface{}) (*app.Product, error)
 	FindActiveProducts(*app.DBFilter) ([]app.Product, error)
 	FindActiveProductsByCategory([]interface{}, *app.DBFilter) ([]app.Product, error)
