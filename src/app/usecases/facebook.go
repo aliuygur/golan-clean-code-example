@@ -44,6 +44,7 @@ func getUserByAccessToken(accessToken string) (*fbUser, error) {
 	if err != nil {
 		return nil, errs.Wrap(err)
 	}
+	defer resp.Body.Close()
 
 	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
