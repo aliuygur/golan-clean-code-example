@@ -99,10 +99,10 @@ type Address struct {
 	AddressBody
 }
 
-func (a *Address) BeforeCreate(tx *gorm.DB) (err error) {
+func (a *Address) BeforeCreate(tx *gorm.DB) error {
 	var count int
 
-	err = tx.
+	err := tx.
 		Table("addresses").
 		Where("user_id=?", a.UserID).
 		Where("`default`=?", true).
@@ -113,7 +113,7 @@ func (a *Address) BeforeCreate(tx *gorm.DB) (err error) {
 		a.Default = true
 	}
 
-	return
+	return err
 }
 
 type Product struct {
