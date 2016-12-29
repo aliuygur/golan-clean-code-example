@@ -19,7 +19,7 @@ func (u *User) RegisterFacebook(accessToken string) (string, error) {
 
 	var usr app.User
 	if err := u.repo.OneBy(&usr, app.DBWhere{"Email": fbuser.Email}); err == nil {
-		goto token
+		return usr.CreateJWT(os.Getenv("SECRET_KEY"))
 	} else if !u.repo.IsNotFoundErr(err) {
 		return "", err
 	}
@@ -33,10 +33,7 @@ func (u *User) RegisterFacebook(accessToken string) (string, error) {
 		return "", err
 	}
 
-token:
-	token, err := usr.CreateJWT(os.Getenv("SECRET_KEY"))
-
-	return token, err
+	return usr.CreateJWT(os.Getenv("SECRET_KEY"))
 }
 
 func getUserByAccessToken(accessToken string) (*fbUser, error) {
